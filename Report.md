@@ -130,6 +130,19 @@ Length: 6 bits, indicates payload size.
 
 ![image](https://github.com/user-attachments/assets/29e642f9-4709-4bc1-80d8-23349d02546d)
 
+<h1> Synthesis </h1>
+
+![image](https://github.com/user-attachments/assets/f1546174-f088-4907-a71c-b6e9e2448bcc)
+
+![image](https://github.com/user-attachments/assets/9ceebd55-c0b3-4d27-a123-ed93f3a05cc1)
+
+![image](https://github.com/user-attachments/assets/96a8c730-4387-4963-8ebf-9df90d120d70)
+
+
+
+
+
+
 
 
 
