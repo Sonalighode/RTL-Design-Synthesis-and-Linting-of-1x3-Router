@@ -73,6 +73,21 @@ Length: 6 bits, indicates payload size.
 
 <h2> Synhronizer </h2>
 
+![image](https://github.com/user-attachments/assets/4614437c-037e-4ba8-b486-14d22fc5e528)
+
+1. **Synchronization Purpose**: Ensures communication between input port and three output ports.
+2. **FIFO Selection**: 'detect_add' and 'data_in' signals select a FIFO for routing.
+3. **FIFO Full Signal**: 'fifo_full' based on 'full_0', 'full_1', or 'full_2' status.
+4. **Valid Output Signal**: 'vld_out_x' based on 'empty_x' status.
+5. **Write Enable Signal**: 'write_enb_reg' generates 'write_enb' for the selected FIFO.
+6. **Internal Reset Signals**: 'soft_rst_x' activated if 'read_enb_X' not asserted within 30 clock cycles of 'vld_out_X' assertion.
+
+<h3> Output </h3>
+
+![image](https://github.com/user-attachments/assets/9de79e1e-f334-48f2-a89e-06967ed76318)
+
+<h2> FSM </h2>
+
 
 
   
