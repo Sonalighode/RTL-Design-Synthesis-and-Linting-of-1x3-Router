@@ -88,6 +88,55 @@ Length: 6 bits, indicates payload size.
 
 <h2> FSM </h2>
 
+![image](https://github.com/user-attachments/assets/02ec290b-48b0-4c52-abe0-f3571e85d61d)
+
+1. **FSM Purpose**: Controls ROUTER, generating signals to transfer packets to output ports.
+2. **STATE-DECODE_ADDRESS**: Initial state, 'detect_add' latches the header byte.
+3. **STATE-LOAD_FIRST_DATA**: 'Ifd_state' loads first data byte; 'busy' prevents header update.
+4. **STATE-LOAD_DATA**: 'id_state' loads payload; 'write_enb_reg' writes to FIFO; transitions based on 'pkt_valid' and FIFO status.
+5. **STATE-LOAD_PARITY**: Latches the parity byte; transitions to CHECK_PARITY_ERROR; 'busy' prevents new data.
+6. **STATE-FIFO_FULL**: 'busy' high, 'write_enb_reg' low, detects FIFO full.
+7. **STATE-LOAD_AFTER_FULL**: 'laf_state' latches post-full data; transitions based on 'parity_done' and 'low_pkt_valid'.
+8. **STATE-WAIT_TILL_EMPTY**: 'busy' high, 'write_enb_reg' low.
+9. **STATE-CHECK_PARITY_ERROR**: 'rst_int_reg' resets 'low_pkt_valid'; transitions based on FIFO status; 'busy' asserted.
+10. **Soft-Reset Usage**: Returns to DECODE ADDRESS for packet timeout situations.
+
+<h3> Output </h3>
+
+![image](https://github.com/user-attachments/assets/1b67818a-f6b4-42d1-9072-733e40a6b91b)
+
+<h2> Register </h2>
+
+![image](https://github.com/user-attachments/assets/3cfb4cbc-9a91-49bb-ac72-a275270dd438)
+
+1. **Registers**: Holds header byte, FIFO full state byte, internal parity, and packet parity byte.
+2. **Clock Edge**: Registers latched on rising clock edge.
+3. **Reset Condition**: 'resetn' low sets 'dout', 'err', 'parity_done', and 'low_pkt_valid' to low.
+4. **Parity Done Conditions**:
+   - 'Id_state' high and 'fifo_full' low.
+   - Both 'laf_state' and 'low_pkt_valid' high with previous 'parity_done' low.
+5. **Reset Signal**: 'rst_int_reg' resets 'low_pkt_valid'.
+6. **Detect Add Signal**: Parity done signal is used.
+7. **Low Packet Valid**: High when 'Id_state' high and 'pkt_valid' low.
+8. **Header Byte Latching**: 'detect_add' and 'pkt_valid' high latch the first byte.
+9. **Internal Parity Calculation**: Bitwise XOR of header, payload bytes, and previous parity.
+10. **Error Calculation**: 'err' set if packet parity doesn't match internal parity.
+
+<h3> Output </h3>
+
+![image](https://github.com/user-attachments/assets/defe01dc-f570-4624-b10c-bea8064bd7c2)
+
+<h2> Top block output </h2>
+
+![image](https://github.com/user-attachments/assets/29e642f9-4709-4bc1-80d8-23349d02546d)
+
+
+
+
+
+
+
+
 
 
   
