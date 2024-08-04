@@ -126,7 +126,7 @@ Length: 6 bits, indicates payload size.
 
 <h3> Output </h3>
 
-![image](https://github.com/user-attachments/assets/defe01dc-f570-4624-b10c-bea8064bd7c2)
+![image](https://github.com/user-attachments/assets/cd751156-9ad9-4f41-bbb4-aa67fc7068cb)
 
 <h2> Top block </h2>
 
