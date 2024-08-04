@@ -90,6 +90,8 @@ Length: 6 bits, indicates payload size.
 
 ![image](https://github.com/user-attachments/assets/02ec290b-48b0-4c52-abe0-f3571e85d61d)
 
+![image](https://github.com/user-attachments/assets/f5910c8a-daaf-4c13-8c4a-e076675d3c23)
+
 1. **FSM Purpose**: Controls ROUTER, generating signals to transfer packets to output ports.
 2. **STATE-DECODE_ADDRESS**: Initial state, 'detect_add' latches the header byte.
 3. **STATE-LOAD_FIRST_DATA**: 'Ifd_state' loads first data byte; 'busy' prevents header update.
@@ -126,7 +128,11 @@ Length: 6 bits, indicates payload size.
 
 ![image](https://github.com/user-attachments/assets/defe01dc-f570-4624-b10c-bea8064bd7c2)
 
-<h2> Top block output </h2>
+<h2> Top block </h2>
+
+![image](https://github.com/user-attachments/assets/03c9d772-1dbb-432f-b0e4-3ff1617198be)
+
+<h3> Output </h3>
 
 ![image](https://github.com/user-attachments/assets/29e642f9-4709-4bc1-80d8-23349d02546d)
 
